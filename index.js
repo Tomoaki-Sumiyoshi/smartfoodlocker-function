@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
       case "DELETE /items/{id}":
         await dynamo
           .delete({
-            TableName: "smartfoodlocker-table",
+            TableName: "Todo-a2x4p4qbsralzpahfwz7wknrpq-testuser",
             Key: {
               id: event.pathParameters.id
             }
@@ -25,7 +25,7 @@ exports.handler = async (event, context) => {
       case "GET /items/{id}":
         body = await dynamo
           .get({
-            TableName: "smartfoodlocker-table",
+            TableName: "Todo-a2x4p4qbsralzpahfwz7wknrpq-testuser",
             Key: {
               id: event.pathParameters.id
             }
@@ -33,13 +33,13 @@ exports.handler = async (event, context) => {
           .promise();
         break;
       case "GET /items":
-        body = await dynamo.scan({ TableName: "smartfoodlocker-table" }).promise();
+        body = await dynamo.scan({ TableName: "Todo-a2x4p4qbsralzpahfwz7wknrpq-testuser" }).promise();
         break;
       case "PUT /items":
         let requestJSON = JSON.parse(event.body);
         await dynamo
           .put({
-            TableName: "smartfoodlocker-table",
+            TableName: "Todo-a2x4p4qbsralzpahfwz7wknrpq-testuser",
             Item: {
               id: requestJSON.id,
               price: requestJSON.price,
